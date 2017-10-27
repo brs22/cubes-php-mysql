@@ -18,6 +18,11 @@ FROM
     products;
 
 
+
+
+
+
+
 -- Pretraga odnosno WHERE deo upita
 --
 -- Zadatak: Selektuj sve redove iz tabele `products` koji imaju kategoriju 'Mobilni Telefon' (WHERE =)
@@ -129,6 +134,9 @@ WHERE
     quantity >0 
 AND on_sale = 1;
 
+
+
+
 -- Izraz kao kolona u rezultatu
 -- Zadatak: Selektuj id, naziv, CENU SA POPUSTOM, iz tabele `products` koji su na stanju i koji su na raspordaji
 SELECT 
@@ -142,6 +150,9 @@ FROM
 WHERE
     quantity >0 
 AND on_sale = 1;
+
+
+
 
 
 -- Sortiranje
@@ -174,23 +185,155 @@ ORDER BY
     `brand` ASC,
     `price` DESC;
 
+
+
+
 -- Limitiranje broja redova u rezultatu
 -- Zadatak: Selektuj prvih 5 najskupljih mobilnih telefona (LIMIT)
--- Zadatak: Selektuj drugih 5 najskupljih mobilnih telefona (LIMIT OFFSET
+SELECT 
+    *
+FROM
+    `products`
+WHERE
+    category = 'Mobilni Telefon'
+ORDER BY 
+    `price` DESC
+LIMIT 5;
+
+-- Zadatak: Selektuj prva 3 najskuplja televizora, koji ima na stanju
+SELECT 
+    *
+FROM
+    `products`
+WHERE
+    category = 'Televizor'
+    AND quantity > 0
+ORDER BY 
+    `price` DESC
+LIMIT 3;
+
+-- Zadatak: Selektuj drugih 5 najskupljih mobilnih telefona (LIMIT OFFSET)
+SELECT 
+    *
+FROM
+    `products`
+WHERE
+    category = 'Mobilni Telefon'
+ORDER BY 
+    `price` DESC
+LIMIT 5 
+OFFSET 5;
+
+
 
 
 -- Agregatne funkcije
 -- Zadatak: Selektuj ukupan broj proizvoda (COUNT)
+SELECT
+    COUNT(`id`)
+FROM
+    `products`;
+
 -- Zadatak: Selektuj ukupan broj proizvoda koji su mobilni telefoni (COUNT WHERE)
--- Zadatak: Selektuj koliko ima komada mobilnih telefona marke 'Samsung' (SUM)
+SELECT
+    COUNT(`id`) AS `ukupno mobilnih telefona`,
+    `title` --ovo je samo da bi se prikazala agregacija u jedan red
+FROM
+    `products`
+WHERE
+    `category` = 'Mobilni telefon';
+
+-- Zadatak: Selektuj koliko ukupno na stanju (quantity) ima komada mobilnih telefona marke 'Samsung' (SUM)
+SELECT
+    SUM(`quantity`) AS `ukupno mobilnih telefona na stanju marke Samsung`
+FROM
+    `products`
+WHERE
+    `category` = 'Mobilni telefon'
+    AND `brand` = 'Samsung';
+
 -- Zadatak: Selektuj sve kategorije koje se pojavljuju (DISTINCT)
+SELECT
+    DISTINCT(`category`)
+FROM
+    `products`;
+
+
+
 
 -- Agregatne funkcije sa GROUP BY
--- Zadatak: Selektuj broj proizvoda po kategorijama (COUNT GROUP BY)
--- Zadatak: Selektuj broj komada proizvoda po kategorijama (SUM GROUP BY)
--- Zadatak: Selektuj brendove koji imaju vise od 5 proizvoda (GROUP BY HAVING)
--- Zadatak: Selektuj brendove koji imaju vise od 5 proizvoda sortiranih po broju proizvoda opadajuce (GROUP BY HAVING, aggregate function u ORDER BY-u)
+-- Zadatak: perethodni zadatak koriscenjem (GROUP BY)
+SELECT
+    `category`,
+    `brand`
+FROM
+    `products`
+GROUP BY
+    `category`,
+    `brand`;
 
+--Zadatak: Grupisanje po kategoriji i brendu (GROUP BY) = kombinacija brendova i kategorija koji se pojavljuju
+SELECT
+    `category`,
+    `brand`
+FROM
+    `products`
+GROUP BY
+    `category`,
+    `brand`;
+
+-- Zadatak: Selektuj broj proizvoda po kategorijama (COUNT GROUP BY)
+SELECT
+    `category`,
+    COUNT(`id`) AS `ukupno razlicitih proizvoda po kategoriji`
+FROM
+    `products`
+GROUP BY
+    `category`;
+
+-- Zadatak: Selektuj broj komada proizvoda po kategorijama (SUM GROUP BY)
+SELECT
+    `category`,
+    SUM(`quantity`) AS `ukupno proizvoda na stanju po kategoriji`
+FROM
+    `products`
+GROUP BY
+    `category`;
+
+-- Zadatak: Ispisati kategorija, broj proizvoda u kategoriji i broj komada u kategoriji
+SELECT
+    `category`,
+    COUNT(`id`) AS `ukupno razlicitih proizvoda po kategoriji`,
+    SUM(`quantity`) AS `ukupno proizvoda na stanju po kategoriji`
+FROM
+    `products`
+GROUP BY
+    `category`;
+
+-- Zadatak: Selektuj brendove koji imaju vise od 5 proizvoda (GROUP BY HAVING)
+SELECT
+    `brand`,
+    COUNT(`id`) AS `broj proizvoda u brendu`
+FROM
+    `products`
+GROUP BY
+    `brand`
+HAVING
+    COUNT(`id`) > 5;
+
+
+-- Zadatak: Selektuj brendove koji imaju vise od 3 proizvoda sortiranih po broju proizvoda opadajuce (GROUP BY HAVING, aggregate function u ORDER BY-u)
+SELECT
+    `brand`,
+    COUNT(`id`) AS `broj proizvoda u brendu`
+FROM
+    `products`
+GROUP BY
+    `brand`
+HAVING
+    COUNT(`id`) > 3
+ORDER BY
+    COUNT(`id`) DESC;
 
 
 
@@ -208,7 +351,7 @@ GROUP BY
 HAVING
 	--agregate columns conditions
 ORDER BY
-	--order bu columns
+	--order by columns
 LIMIT 
 	--number of rows
 OFFSET 
