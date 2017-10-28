@@ -1,0 +1,12 @@
+- Ko nije klonirao repozitorijum neka to uradi, dakle klonirate svoj repozitorijum cubes-php-mysql
+- Pokrenite Netabeans, otvorite projekat cubes-php-mysql i uradite git -> remote -> pull from upstream
+- Kreirajte folder /sql-domaci i u njega ubacite fajl 01-NEWS-SELECT.sql iz materijala
+- Kreirajte folder /database (ako niste) i u njega ubacite fajl news.sql
+- Pokrenite phpmyadmin i importujte fajl /database/news.sql
+- U tom fajlu je data tabela sa vestim na kojoj treba da napisete upite vezane za domaci
+- Sva polja su prilicno intuitivna osim mozda polja on_homepage koje je indikator da li se vest nalazila na homepage-u nekog novinskog portala ili ne
+- Upite treba da napisete u fajlu /sql-domaci/01-NEWS-SELECT.sql i u tom fajlu je dat spisak upita
+- Kada zavrsite uratite git -> commit 
+- Nakon toga git -> remote -> push to upstream
+- Nakon svega toga zapakujte fajl /sql-domaci/01-NEWS-SELECT.sql i okacite na platformu za podrsku nastavi
+news.sql
