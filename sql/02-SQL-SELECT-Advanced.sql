@@ -139,3 +139,4 @@ SELECT `brand` FROM `products` GROUP BY `brand` HAVING COUNT(`id`) > 5);
 --LIMIT nije moguce koristiti u pod upitu
 SELECT `category` FROM `products` GROUP BY `category` ORDER BY COUNT(`id`) DESC LIMIT 1;
 
+
