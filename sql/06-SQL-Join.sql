@@ -125,4 +125,13 @@ WHERE
 
 -- Zadatak: Selektuj nazive brendova koji nemaju proizvode
 SELECT
-    
+    `brands`.`id`,
+    `brands`.`title`,
+    `products`.`id`,
+    `products`.`category_id`
+FROM
+    `products`
+RIGHT JOIN
+    `brands` ON `brands`.`id` = `products`.`brand_id`
+WHERE
+    `products`.`brand_id` IS NULL;  
