@@ -1,4 +1,4 @@
-<h1>Izmena Brenda <?php echo htmlspecialchars($brand['title']); ?></h1>
+<h1>Izmena Brenda #<?php echo htmlspecialchars($brand['id']) . " "; ?><?php echo htmlspecialchars($brand['title']); ?></h1>
 
 <form action="" method="post">
     <input type="hidden" name="task" value="save">
