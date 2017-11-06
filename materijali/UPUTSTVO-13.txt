@@ -1,0 +1,13 @@
+- Napravite novu bazu podataka pod nazivom world i importujte u nju fajl world.sql
+
+- U bazi se nalaze 3 tabele
+    - countries - gde su pobrojane zemlje. 
+        Zemlja ima id, kratki kod, naziv i pozivni broj
+    - states - gde su pobrojane regije. 
+        Svaka regija ima id, naziv i id zemlje za koju je vezana  (contry_id je preneseni kljuc)
+    - cities - gde su pobrojani gradovi. 
+        SVaki grad ima id, naziv, regiju (state_id je prenesi kljuc iz tabele state) i polje population tj broj stanovnika
+
+Neophodno je da popunite fajl Zadaci.sql sa ispravnim upitima koji se traze i da SAMO NJEGA POSALJETE NAZAD NA PLATFORMU!!!
+
+
