@@ -1,0 +1,39 @@
+Klijenti sa kojima bidete pricali su najcesce netehnicka lica koja vam opisuju svoj poslovni proces.
+Vi treba na osnovu njihovog opisa najpre da osmislite model baze podataka tj na koji nacin cete da organizujete podatke.
+Trebate da uocite tabele i njihove kolone i da uocite veze izmedju tabela.
+Ja vam dajem opis kao netehnicko lice a vi trebate da osmislite bazu podataka.
+
+Tehnicki opis klijent1 - baza "zaposleni":
+
+Treba mi evidencija zaposlenih i njihovih plata. 
+Ono sto mi treba od zaposlenog jeste da cuvam njegovo ime, prezime jmbg. 
+Svaki zaposleni je zaposlen na radnoj poziciji. Radna pozicija ima naziv i platni razred. 
+Platni razred ima naziv i iznos plate. 
+Na primer postoje pozicije: praktikant koji je na platnom razredu pod nazivom "nulti" sa platom 0 din, 
+radne pozicije junior programer, junior tester, office manager koji su na platnom razredu pod nazivom "pocetni" 
+sa platom ox 50000, pozicije senior programer, senior tester, specijalista za digitalni marketing koji su na platnom 
+razredu "napredni" sa platom 100000, i pozicije tehnicki direktor, generalni direktor, operativni direktor koji 
+su na platnom razredu "top management" sa platom 150000. Jedan zaposleni moze da bude zaposlen na vise pozicija 
+vodi se evidencija na kojim pozicijama se nalazio.
+
+
+Tehnicki opis klijent2 - baza "naruzbine”
+
+Imamo proizvode koji imaju naziv, cenu i kategoriju.
+Imamo klijente za koje belezimo naziv, maticni broj firme, kontakt telefon i tekst ugovora koji moze da bude bas povelik.
+Veoma nam je bitno da belezimo nafuzbine klijenata.
+Jedna narudzbina treba da ima informaciju o tome koji je klijent napravio narudzbenicu, datum narudzbine i adresu isporuke.
+Jedna narudzbina ima vise stavki narudzbenice. Jedna stavka naruzbenice sadrzi koji je proizvod narucen i kolicinu proizvoda.
+
+
+Zadatak:
+
+Napraviti 2 modela baze pod nazivima “zaposleni” i “narudzbine” na sajtu genmymodel na osnovu zahteva klijenata. 
+Nakon toga napraviti dve baze podataka kroz phpmyadmin na osnovu modela. 
+Baze exportovati u fajlove zaposleni.sql i narudzbine.sql, a modele eksportovati u slike zaposleni.jpg i 
+narudzbine.jpg (postoji opcija na sajtu genmymodel). Fajlove zaposleni.sql, zaposleni.jpg, narudzbine.sql i 
+narudzbine.jpg zapakovati i poskati kao domaci14.zip na platformu za nastavu.
+
+Rok je sreda 08. Novembar
+
+Veliki pozdrav!
