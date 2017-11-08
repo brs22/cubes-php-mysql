@@ -15,7 +15,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2>
-							CRUD Group - Delete group #444
+							CRUD Group - Delete group #<?php echo htmlspecialchars($group['id']);?> <?php echo htmlspecialchars($group['title']);?>
 						</h2>
 					</div>
 				</div>
@@ -30,8 +30,8 @@
 								<div class="form-group">
 									<div class="col-md-6 col-md-offset-3 jumbotron">
 										<strong>
-											#444 - 
-											Title of group
+											#<?php echo htmlspecialchars($group['id']);?> - 
+											<?php echo htmlspecialchars($group['title']);?>
 										</strong>
 									</div>
 								</div>
@@ -39,7 +39,7 @@
 							<fieldset>
 								<legend></legend>
 								<div class="form-group text-right">
-									<a href="#" class="btn btn-default">Cancel</a>
+                                                                    <a href="/crud-group-list.php" class="btn btn-default">Cancel</a>
 									<button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
 								</div>
 							</fieldset>
