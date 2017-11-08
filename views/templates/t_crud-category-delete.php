@@ -15,7 +15,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2>
-							CRUD Brand - Delete category #<?php echo htmlspecialchars($category['id']);?>
+							CRUD Brand - Delete category #<?php echo htmlspecialchars($category['id']);?> <?php echo htmlspecialchars($category['title']);?>
 						</h2>
 					</div>
 				</div>
