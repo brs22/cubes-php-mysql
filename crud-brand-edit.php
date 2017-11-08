@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+require_once __DIR__ . '/models/m_brands.php';
 
 if (empty($_GET['id'])) {
     die('Morate proslediti id');
@@ -6,20 +9,7 @@ if (empty($_GET['id'])) {
 
 $id = (int) $_GET['id'];
 
-
-$link = mysqli_connect('127.0.0.1', 'cubes', 'cubes', 'cubesphp');
-
-if ($link === FALSE) {
-    die('Mysql Error:' . mysqli_connect_error());
-}
-$query = "SELECT * FROM `brands` WHERE `id`= '" . mysqli_real_escape_string($link, $id) . "'";
-
-$result = mysqli_query($link, $query);
-if ($result === FALSE) {
-    die('Mysql Error:' . mysqli_error($link));
-}
-
-$brand = mysqli_fetch_assoc($result);
+$brand = brandsFetchOneById($id);
 
 if (empty($brand)) {
     die('Trazeni brand ne postoji!');
@@ -65,16 +55,9 @@ if (isset($_POST["website_url"]) && $_POST["website_url"] !== '') {
     //Ukoliko nema gresaka 
     if (empty($formErrors)) {
         //Uradi akciju koju je korisnik trazio
-    $query = "UPDATE `brands` SET ";
-    $query .= "`title` = '". mysqli_real_escape_string($link, $formData['title']) ."', ";
-    $query .= "`website_url` = '". mysqli_real_escape_string($link, $formData['website_url']) ."' ";
-    $query .= "WHERE `id` = '" . mysqli_real_escape_string($link, $brand['id']) . "' ";
-    
-    
-    $result = mysqli_query($link, $query);
-    if($result === false) {
-        die('Mysql Error:' . mysqli_error($link)); 
-    }
+        
+    brandsUpdateOneById($brand['id'], $formData);
+            
     header('location: /crud-brand-list.php');
     die();
     }

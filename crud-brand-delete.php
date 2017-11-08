@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+
+require_once __DIR__ . '/models/m_brands.php';
 
 if (empty($_GET['id'])) {
     die('Morate proslediti id');
@@ -7,25 +10,19 @@ if (empty($_GET['id'])) {
 
 $id = (int) $_GET['id'];
 
+$brand = brandsFetchOneById($id);
 
-$link = mysqli_connect('127.0.0.1', 'cubes', 'cubes', 'cubesphp');
-
-if ($link === FALSE) {
-    die('Mysql Error:' . mysqli_connect_error());
-}
-$query = "SELECT * FROM `brands` WHERE `id`= '". mysqli_real_escape_string($link, $id) . "'";
-
-$result = mysqli_query($link,$query);
-if ($result === FALSE) {
-    die('Mysql Error:' . mysqli_error($link));
-}
-
-$brand = mysqli_fetch_assoc($result);
-
-if(empty($brand)) {
+if (empty($brand)) {
     die('Trazeni brand ne postoji!');
 }
 
+if (isset($_POST["task"]) && $_POST["task"] == "delete") {
+
+    brandsDeleteOneById($id);
+
+    header('location: /crud-brand-list.php');
+    die();
+}
 
 require_once __DIR__ . '/views/layout/header.php';
 require_once __DIR__ . '/views/templates/t_crud-brand-delete.php';
