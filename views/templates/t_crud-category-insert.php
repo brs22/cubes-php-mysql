@@ -48,10 +48,10 @@
                                 <select name="group_id" class="form-control">
                                     <option value="">--- Select Group ---</option>
                                     <?php foreach ($groups as $group) { ?>
-                                    <option 
-                                        value="<?php echo htmlspecialchars($group['id']); ?>"
-                                        ><?php echo htmlspecialchars($group['title']); ?></option>
-                                    <?php } ?>
+                                        <option 
+                                            value="<?php echo htmlspecialchars($group['id']); ?>"
+                                            ><?php echo htmlspecialchars($group['title']); ?></option>
+                                        <?php } ?>
                                 </select>
                             </div>
                             <div class="col-md-4">

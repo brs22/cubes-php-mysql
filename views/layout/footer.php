@@ -70,12 +70,12 @@
 			</div>
 		</footer>
 		<!--Scripts -->
-		<script src="/skins/tema/js/jquery.js"></script>
+		<script src="/../../skins/tema/js/jquery.js"></script>
 		<!-- Bootstrap Javascript -->
-		<script src="/skins/tema/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="/skins/tema/plugins/flexslider/jquery.flexslider-min.js"></script>
+		<script src="/../../skins/tema/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="/../../skins/tema/plugins/flexslider/jquery.flexslider-min.js"></script>
 		<!--Custom scripts mainly used to trigger libraries -->
-		<script src="/skins/tema/js/script.js"></script>
+		<script src="/../../skins/tema/js/script.js"></script>
 	</body>
 
 </html>

@@ -1,9 +1,10 @@
 <?php
+
 session_start();
 
 require_once __DIR__ . '/models/m_categories.php';
 
-$categories = categoriesFetchAll(); 
+$categories = categoriesFetchAll();
 
 
 require_once __DIR__ . '/views/layout/header.php';
