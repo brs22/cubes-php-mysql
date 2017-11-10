@@ -1,6 +1,11 @@
 <?php
 session_start();
+require_once __DIR__ . '/models/m_users.php';
 
+if(!isUserLoggedIn()) {
+    header('location: /login.php');
+    die();
+}
 require_once __DIR__ . '/models/m_brands.php';
 
 if (empty($_GET['id'])) {

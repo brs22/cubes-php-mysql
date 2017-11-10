@@ -1,10 +1,16 @@
 <?php
 
 session_start();
+require_once __DIR__ . '/models/m_users.php';
+
+if(!isUserLoggedIn()) {
+    header('location: /login.php');
+    die();
+}
 require_once __DIR__ . '/models/m_categories.php';
 require_once __DIR__ . '/models/m_groups.php';
 
-$groups = groupsFetchAll();
+
 
 //ovde se prihvataju vrednosti polja, popisati sve kljuceve i pocetne vrednosti
 $formData = array(
@@ -37,9 +43,18 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 
         //Filtering 1
         $formData["group_id"] = trim($formData["group_id"]);
-
-        $group_idPossibleValues = groupsFetchAll();
+        
+        $testGroup = groupsFetchOneById($formData["group_id"]);
+        if(empty($testGroup)){
+            //nije pronadjena grupa po ID-ju
+            $formErrors['group_id'][] = "Izabrali ste neodgovarajucu vrednost za polje group_id";
+        }
+        
     }
+    
+    else {//Ovaj else ide samo ako je polje obavezno
+		$formErrors["group_id"][] = "Polje group_id je obavezno";
+	}
 
 
     if (isset($_POST["description"]) && $_POST["description"] !== '') {
@@ -56,12 +71,14 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
     if (empty($formErrors)) {
         //Uradi akciju koju je korisnik trazio
 
-        $newCategory = categoriesInsertOne($formData);
+        $newCategoryId = categoriesInsertOne($formData);
 
         header('location: /crud-category-list.php');
         die();
     }
 }
+
+$groupList = groupsGetList();
 
 require_once __DIR__ . '/views/layout/header.php';
 require_once __DIR__ . '/views/templates/t_crud-category-insert.php';

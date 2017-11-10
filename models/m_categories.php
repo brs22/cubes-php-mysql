@@ -42,7 +42,7 @@ function categoriesDeleteOneById($id) {
 
 /**
  * @param array $data Row to insert, associative array
- * @return type
+ * @return type 
  */
 function categoriesInsertOne(array $data) {
 	
