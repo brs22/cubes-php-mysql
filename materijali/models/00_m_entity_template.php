@@ -4,10 +4,10 @@ require_once __DIR__ . '/m_database.php';
 
 /**
  * 
- * @return array Array of associative arrays that represent rows
+ * @return array Aarray of associative arrays that represent rows
  */
-function brandsFetchAll() {
-	$query = "SELECT `brands`.* FROM `brands`";
+function entityNameFetchAll() {
+	$query = "SELECT `entityName`.* FROM `entityName`";
 	
 	
 	return dbFetchAll($query);
@@ -17,10 +17,10 @@ function brandsFetchAll() {
  * @param scalar $id
  * @return array Associative array that represent one row
  */
-function brandsFetchOneById($id) {
+function entityNameFetchOneById($id) {
 	
-	$query = "SELECT `brands`.* "
-			. "FROM `brands` "
+	$query = "SELECT `entityName`.* "
+			. "FROM `entityName` "
 			. "WHERE `id` = '" . dbEscape($id) . "'";
 	
 	return dbFetchOne($query);
@@ -30,9 +30,9 @@ function brandsFetchOneById($id) {
  * @param int $id
  * @return int Affected rows
  */
-function brandsDeleteOneById($id) {
+function entityNameDeleteOneById($id) {
 	
-	$query = "DELETE FROM `brands` "
+	$query = "DELETE FROM `entityName` "
 			. "WHERE `id` = '" . dbEscape($id) . "'";
 	
 	return dbQuery($query);
@@ -42,7 +42,7 @@ function brandsDeleteOneById($id) {
  * @param array $data Row to insert, associative array
  * @return type
  */
-function brandsInsertOne(array $data) {
+function entityNameInsertOne(array $data) {
 	
 	$columnsPart = "(`" . implode('`, `', array_keys($data)) . "`)";
 	
@@ -54,7 +54,7 @@ function brandsInsertOne(array $data) {
 	
 	$valuesPart = "(" . implode(', ', $values) . ")";
 	
-	$query = "INSERT INTO `brands` " . $columnsPart . " VALUES " . $valuesPart;
+	$query = "INSERT INTO `entityName` " . $columnsPart . " VALUES " . $valuesPart;
 
 	
 	dbQuery($query);
@@ -62,7 +62,7 @@ function brandsInsertOne(array $data) {
 	return dbLastInsertId();
 }
 
-function brandsUpdateOneById($id, $data) {
+function entityNameUpdateOneById($id, $data) {
 	
 	$setParts = array();
 	
@@ -72,7 +72,7 @@ function brandsUpdateOneById($id, $data) {
 	
 	$setPart = implode(',', $setParts);
 	
-	$query = "UPDATE `brands` SET " . $setPart . " WHERE `id` = '" . dbEscape($id) . "'";
+	$query = "UPDATE `entityName` SET " . $setPart . " WHERE `id` = '" . dbEscape($id) . "'";
 
 	return dbQuery($query);
 }
@@ -80,29 +80,10 @@ function brandsUpdateOneById($id, $data) {
 /**
  * @return int Count of all rows in table
  */
-function brandsGetCount() {
+function entityNameGetCount() {
 	$link = dbGetLink();
 	
-	$query = "SELECT COUNT(`id`) FROM `brands`";
+	$query = "SELECT COUNT(`id`) FROM `entityName`";
 	
 	return dbFetchColumn($query);
-}
-
-
-
-
-function brandsGetList() {
-     $query = "SELECT `brands`.* FROM `brands` ORDER BY `brands`.`title`";
-
-    $brands = dbFetchAll($query);
-    
-    $brandList = [];
-    
-    foreach ($brands as $brand) {
-
-        $brandList[$brand['id']] = $brand['title'];
-    }
-    
-    return $brandList;
-    
 }
