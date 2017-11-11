@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 10, 2017 at 04:10 PM
+-- Generation Time: Nov 11, 2017 at 11:53 PM
 -- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -76,7 +76,7 @@ INSERT INTO `categories` (`id`, `title`, `description`, `group_id`) VALUES
 (5, 'Sporet', '', 2),
 (6, 'Fen', 'FEN Belotehnicni', 2),
 (7, 'Laptop', '', 3),
-(13, 'Sporet', '', 2);
+(12, 'qwvqwervqe', '', 2);
 
 -- --------------------------------------------------------
 
@@ -99,6 +99,34 @@ INSERT INTO `groups` (`id`, `title`) VALUES
 (3, 'Racunari'),
 (4, 'Hemijana'),
 (5, 'Slusalice');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `section_id` int(11) NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `content` longtext COLLATE utf8mb4_unicode_ci,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `section_id`, `title`, `description`, `content`, `created_at`) VALUES
+(11, 3, 'Anabela na Farmi', '', '', '0000-00-00 00:00:00'),
+(12, 3, 'Keba pijan vozio dzipa po Beogradu', '', '', '0000-00-00 00:00:00'),
+(13, 3, 'Seka slavila rodjendan', '', '', '0000-00-00 00:00:00'),
+(14, 2, 'Sastanak sefova svih zemalja', '', '', '0000-00-00 00:00:00'),
+(15, 4, 'Mijatovic  ponovo na krovu sveta', '', '', '0000-00-00 00:00:00'),
+(16, 4, 'Tarlac dominira terenom', '', '', '0000-00-00 00:00:00'),
+(17, 3, 'Proslava rodjendana na krovu sveta - FOTO', '', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -174,6 +202,7 @@ INSERT INTO `products` (`id`, `brand_id`, `title`, `description`, `specification
 (39, 1, 'iPhone6 S', 'iPhone6 S', '', '39999.99', 12, 1, 0, '0.00', '2016-03-21 18:00:00'),
 (40, 1, 'iPhone6 SE', 'iPhone6 SE', '', '37999.99', 11, 1, 0, '0.00', '2016-03-21 18:00:00'),
 (41, 1, 'iPhone5', 'iPhone5', '', '32999.99', 10, 1, 0, '0.00', '2016-03-21 18:00:00'),
+(42, NULL, 'Masina za sivenje', 'Masina za sivenje', 'Masina za sivenje', '1200.00', 1, NULL, 0, '0.00', '2017-11-01 00:00:00'),
 (43, NULL, 'Televizor 8X56P', 'Televizor 8X56P', 'Televizor 8X56P', '11800.00', 36, 2, 0, '0.00', '2017-11-01 00:00:00'),
 (44, 1, 'Ipod Nano', 'Ipod Nano', 'Ipod Nano', '9800.00', 3, NULL, 0, '0.00', '2017-10-23 00:00:00'),
 (45, 2, 'Pegla 1200W', 'Pegla 1200W', 'Pegla 1200W', '3200.00', 1, 99, 0, '0.00', '2017-10-16 00:00:00');
@@ -203,6 +232,27 @@ INSERT INTO `product_tags` (`id`, `product_id`, `tag_id`) VALUES
 (6, 31, 5),
 (7, 11, 2),
 (8, 11, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sections`
+--
+
+CREATE TABLE `sections` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sections`
+--
+
+INSERT INTO `sections` (`id`, `title`) VALUES
+(1, 'Hronika'),
+(2, 'Vesti'),
+(3, 'Zabava'),
+(4, 'Sport');
 
 -- --------------------------------------------------------
 
@@ -249,6 +299,12 @@ ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `polaznici`
 --
 ALTER TABLE `polaznici`
@@ -269,6 +325,12 @@ ALTER TABLE `product_tags`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sections`
+--
+ALTER TABLE `sections`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tags`
 --
 ALTER TABLE `tags`
@@ -282,37 +344,56 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
 -- AUTO_INCREMENT for table `polaznici`
 --
 ALTER TABLE `polaznici`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
 --
 -- AUTO_INCREMENT for table `product_tags`
 --
 ALTER TABLE `product_tags`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `sections`
+--
+ALTER TABLE `sections`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

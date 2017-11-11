@@ -90,7 +90,28 @@ function categoriesGetCount() {
 	return dbFetchColumn($query);
 }
 
+function categoriesGetList() {
 
+    $query = "SELECT `categories`.* FROM `categories` ORDER BY `categories`.`title`";
+
+    $categories = dbFetchAll($query);
+
+
+    $categoriesList = [];  //od PHP-a 5.4 koristi se ova notacija za kreiranje niza
+
+    foreach ($categories as $category) {
+
+//        $key = $group['id'];
+//        $value = $group['title'];
+//   
+//    
+//    $groupList[$key] = $value;
+
+        $categoriesList[$category['id']] = $category['title'];
+    }
+
+    return $categoriesList;
+}
 
 
 function categoriesGetListByGroup() {
