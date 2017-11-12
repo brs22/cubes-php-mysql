@@ -24,7 +24,8 @@ if (empty($oneNews)) {
     die('Trazena vest ne postoji!');
 }
 
-$section = sectionsFetchOneById($id);
+$sections = sectionsFetchAll();
+print_r($sections);
 
 if (isset($_POST["task"]) && $_POST["task"] == "delete") {
 
