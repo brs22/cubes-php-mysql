@@ -45,12 +45,7 @@
                                     #<?php echo htmlspecialchars($oneNews['id']); ?>
                                 </td>
                                 <td>
-                                    <?php foreach ($sections as $sectionId => $sectionValue) { ?>
-
-                                        <?php if ($oneNews['section_id'] == $sectionValue['id']) {
-                                            echo htmlspecialchars($sectionValue['title']); ?>
-                                        <?php } ?>
-                                    <?php } ?>
+                                    <?php echo htmlspecialchars($oneNews['section_title']); ?>
                                 </td>
                                 <td>
                                     <?php echo htmlspecialchars($oneNews['title']); ?>

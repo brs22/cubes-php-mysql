@@ -7,7 +7,11 @@ require_once __DIR__ . '/m_database.php';
  * @return array Aarray of associative arrays that represent rows
  */
 function newsFetchAll() {
-	$query = "SELECT `news`.* FROM `news`";
+	$query = "SELECT `news`.*, "
+                . "`sections`.`title` AS `section_title` "
+                . "FROM `news` "
+                . "LEFT JOIN `sections` ON `news`.`section_id` = `sections`.`id` "
+                . "ORDER BY `sections`.`title` ASC ";
 	
 	
 	return dbFetchAll($query);

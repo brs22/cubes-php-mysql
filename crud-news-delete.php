@@ -19,7 +19,7 @@ $id = (int) $_GET['id'];
 
 $oneNews = newsFetchOneById($id);
 
-
+$section = sectionsFetchOneById($id);
 if (empty($oneNews)) {
     die('Trazena vest ne postoji!');
 }

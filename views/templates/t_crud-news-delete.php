@@ -37,7 +37,7 @@
                                             ?>
                                         <?php } ?>
                                     <?php } ?> / 
-                                    <?php echo htmlspecialchars($oneNews['title']); ?>
+<?php echo htmlspecialchars($oneNews['title']); ?>
                                 </strong>
                             </div>
                         </div>
