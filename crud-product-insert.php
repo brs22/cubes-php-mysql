@@ -198,7 +198,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
            
        } else {
            $formErrors['photo'][] = 'Doslo je do greske prilikom uploada slike';
-       };
+       }
     }
 }
 

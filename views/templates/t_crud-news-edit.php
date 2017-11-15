@@ -64,9 +64,10 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-md-3 control-label">Description</label>
                             <div class="col-md-5">
                                 <textarea name="description" class="form-control" rows="5">
-                                <?php echo isset($formData["description"]) ? htmlspecialchars($formData["description"]) : ""; ?></textarea>
+                                    <?php echo isset($formData["description"]) ? htmlspecialchars($formData["description"]) : ""; ?></textarea>
                             </div>
                             <div class="col-md-4">
                                 <?php if (!empty($formErrors["description"])) { ?>
@@ -83,16 +84,22 @@
                         <legend>Photo</legend>
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
-                                <img src="/skins/tema/img/portfolio/enkel-home-blue.png" class="img-responsive">
+                                <img src="/uploads/news/<?php echo htmlspecialchars($oneNews['photo_filename']); ?>" class="img-responsive">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Change Photo</label>  
                             <div class="col-md-5">
-                                <input type="file" class="form-control">
+                                <input type="file" name="photo" class="form-control">
                             </div>
                             <div class="col-md-4">
-
+                                <?php if (!empty($formErrors["photo"])) { ?>
+                                    <ul style="color: red">
+                                        <?php foreach ($formErrors["photo"] as $errorMessage) { ?>
+                                            <li class="error"><?php echo $errorMessage; ?></li>
+                                        <?php } ?>
+                                    </ul>
+                                <?php } ?>
                             </div>
                         </div>
                     </fieldset>
