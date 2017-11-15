@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 13, 2017 at 04:06 PM
+-- Generation Time: Nov 15, 2017 at 10:21 AM
 -- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -110,6 +110,7 @@ CREATE TABLE `news` (
   `id` int(11) NOT NULL,
   `section_id` int(11) NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo_filename` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8mb4_unicode_ci,
   `content` longtext COLLATE utf8mb4_unicode_ci,
   `created_at` datetime DEFAULT NULL
@@ -119,14 +120,15 @@ CREATE TABLE `news` (
 -- Dumping data for table `news`
 --
 
-INSERT INTO `news` (`id`, `section_id`, `title`, `description`, `content`, `created_at`) VALUES
-(11, 3, 'Anabela na Farmi', '', '', '0000-00-00 00:00:00'),
-(12, 3, 'Keba pijan vozio dzipa po Beogradu', '', '', '0000-00-00 00:00:00'),
-(13, 3, 'Seka slavila rodjendan', '', '', '0000-00-00 00:00:00'),
-(14, 2, 'Sastanak sefova svih zemalja', '', '', '0000-00-00 00:00:00'),
-(15, 4, 'Mijatovic  ponovo na krovu sveta', '', '', '0000-00-00 00:00:00'),
-(16, 4, 'Tarlac dominira terenom', '', '', '0000-00-00 00:00:00'),
-(17, 3, 'Proslava rodjendana na krovu sveta - FOTO', '', '', '0000-00-00 00:00:00');
+INSERT INTO `news` (`id`, `section_id`, `title`, `photo_filename`, `description`, `content`, `created_at`) VALUES
+(11, 3, 'Anabela na Farmi', NULL, '', '', '0000-00-00 00:00:00'),
+(12, 3, 'Keba pijan vozio dzipa po Beogradu', NULL, '', '', '0000-00-00 00:00:00'),
+(13, 3, 'Seka slavila rodjendan', NULL, '', '', '0000-00-00 00:00:00'),
+(14, 2, 'Sastanak sefova svih zemalja', NULL, '', '', '0000-00-00 00:00:00'),
+(15, 4, 'Mijatovic  ponovo na krovu sveta', NULL, '', '', '0000-00-00 00:00:00'),
+(16, 4, 'Tarlac dominira terenom', NULL, '', '', '0000-00-00 00:00:00'),
+(17, 3, 'Proslava rodjendana na krovu sveta - FOTO', NULL, '', '', '0000-00-00 00:00:00'),
+(18, 3, 'Indonezani zapalili Narodno pozoriste - a ovo je glavni krivac!!!', '18_2x2 copy.jpg', '', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -348,46 +350,55 @@ ALTER TABLE `tags`
 --
 ALTER TABLE `brands`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
 --
 -- AUTO_INCREMENT for table `polaznici`
 --
 ALTER TABLE `polaznici`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
 --
 -- AUTO_INCREMENT for table `product_tags`
 --
 ALTER TABLE `product_tags`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
