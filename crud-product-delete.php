@@ -1,4 +1,4 @@
-<?php
+    <?php
 session_start();
 require_once __DIR__ . '/models/m_users.php';
 
@@ -24,7 +24,13 @@ if (empty($product)) {
 
 if (isset($_POST["task"]) && $_POST["task"] == "delete") {
 
+    $photoFilePath = __DIR__ . '/uploads/products/' . $product['photo_filename'];
+            
     productsDeleteOneById($product['id']);
+    
+    if (is_file($photoFilePath)) {
+                unlink($photoFilePath);
+            }
 
     header('location: /crud-product-list.php');
     die();

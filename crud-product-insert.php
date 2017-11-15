@@ -184,6 +184,8 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
     //Ukoliko nema gresaka 
     if (empty($formErrors)) {
         //Uradi akciju koju je korisnik trazio
+        //$formData['created_at'] = date('Y-m-d H:i:s'); moze i ovako a moze i kroz funkciju direktno
+        
         $newProductId = productsInsertOne($formData);
         
         $newProductPhotoFileName = $newProductId . '_' . $photoFileName;

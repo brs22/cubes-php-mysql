@@ -86,6 +86,10 @@ function dbLastInsertId() {
 function dbFetchColumn($query) {
 
     $result = dbQuery($query);
-
-    return mysqli_fetch_field($result);
+    
+    $row = mysqli_fetch_row($result);
+    
+    $firstColumn = $row[0];
+    
+    return $firstColumn;
 }
