@@ -12,7 +12,7 @@ $oneNews = newsFetchOneById($id);
 if (empty($oneNews)) {
     die('Trazena vest ne postoji!');
 }
-
+sectionsFetchAll();
 require_once __DIR__ . '/views/layout/header.php';
 require_once __DIR__ . '/views/templates/t_one-news.php';
 require_once __DIR__ . '/views/layout/footer.php';

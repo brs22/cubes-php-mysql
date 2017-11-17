@@ -29,7 +29,7 @@
                                     <li><i class="glyphicon glyphicon-calendar"></i> <span class="visible-md-inline visible-lg-inline">Created:</span> <?php echo $oneNews['created_at']; ?></li>
                                     <li>
                                         <i class="glyphicon glyphicon-tags"></i> <span class="visible-md-inline visible-lg-inline">Section:</span> 
-                                        <a href="#">Section <?php echo $oneNews['section_id']; ?></a>
+                                        <a href="#"><?php echo $oneNews['section_title']; ?></a>
                                     </li>
                                 </ul>
                                 <h4 class="title media-heading">

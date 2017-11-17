@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-//$_SESSION['user_is_logged_in'] = false;
+//$_SESSION['logged_in_user'] = false;
 session_destroy(); //unistavanje cele esije
 
 header('Location: /index.php');

@@ -115,7 +115,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 
 newsUpdateOneById($oneNews['id'], $formData);
 
- if (isset($_FILES['photo'])) {
+ if (isset($_FILES['photo']) && empty($_FILES["photo"]['error'])) {
             //obrisemo staru sliku
             $oldPhotoPath = __DIR__ . "/uploads/products/" . $oneNews['photo_filename'];
 
