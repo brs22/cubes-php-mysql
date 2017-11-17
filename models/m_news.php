@@ -123,3 +123,40 @@ function newsUpdatePhotoFileName($id, $photoFileName) {
     return dbQuery($query);
     
 }
+
+function newsFetchAllByPage($page, $rowsPerPage) {
+    
+    $query = "SELECT "
+                . "`news`.* , "
+                . "`sections`.`title` AS `section_title` "
+                . "FROM `news` "
+                . "LEFT JOIN `sections` ON `news`.`section_id` = `sections`.`id` ";
+    
+    $limit = $rowsPerPage;
+    $offset = ($page - 1) * $rowsPerPage;
+    
+    $query .= "LIMIT " . $limit . " OFFSET " . $offset;
+	
+	
+	return dbFetchAll($query);
+
+}
+
+function newsGetListBySection() {
+     $query = "SELECT `news`.*, `sections`.`title` AS `section_title` "
+             . "FROM `news` "
+             . "LEFT JOIN `sections` ON `sections`.`id` = `news`.`section_id` "
+             . "ORDER BY `sections`.`title`, `news`.`title`";
+
+    $news = dbFetchAll($query);
+    
+    $sectionList = [];
+    
+    foreach ($news as $oneNews) {
+
+        $sectionList[$oneNews['id']] = $oneNews['title'];
+    }
+    
+    return $categoryList;
+    
+}
