@@ -106,6 +106,8 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
         unset($formData['confirm_password']); //brise se kljuc confirm_passeord jer ne postoji ta kolona u bazi
         
         $newUserId = usersInsertOne($formData);
+        
+         $_SESSION['system_message'] = 'Uspesno ste uneli korisnika.';
 
         header('Location: /crud-user-list.php');
         die();

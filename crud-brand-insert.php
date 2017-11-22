@@ -51,6 +51,8 @@ if (isset($_POST["website_url"]) && $_POST["website_url"] !== '') {
 
         $newBrandId = brandsInsertOne($formData);
         
+        $_SESSION['system_message'] = 'Uspesno ste uneli brend.';
+        
     header('location: /crud-brand-list.php');
     die();
     }

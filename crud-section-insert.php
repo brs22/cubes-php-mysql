@@ -42,6 +42,8 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 	if (empty($formErrors)) {
 		//Uradi akciju koju je korisnik trazio
 	$newSection = sectionsInsertOne($formData);
+        
+         $_SESSION['system_message'] = 'Uspesno ste uneli sekciju.';
 
         header('location: /crud-section-list.php');
         die();

@@ -72,6 +72,8 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
         //Uradi akciju koju je korisnik trazio
 
         $newCategoryId = categoriesInsertOne($formData);
+        
+         $_SESSION['system_message'] = 'Uspesno ste uneli kategoriju.';
 
         header('location: /crud-category-list.php');
         die();

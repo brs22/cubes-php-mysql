@@ -8,10 +8,10 @@ require_once __DIR__ . '/m_database.php';
  */
 function newsFetchAll() {
     $query = "SELECT `news`.*, "
-            . "`sections`.`title` AS section_title "
-            . "FROM `news` "
-            . "LEFT JOIN `sections` ON `news`.`section_id` = `sections`. `id` "
-            . "ORDER BY `sections`.`title` ASC ";
+            . "`sections`.`title` AS `section_title` "
+            . " FROM `news` "
+            . " LEFT JOIN `sections` ON `news`.`section_id` = `sections`. `id` "
+            . " ORDER BY `sections`.`title` ASC ";
 
 
     return dbFetchAll($query);
@@ -23,9 +23,11 @@ function newsFetchAll() {
  */
 function newsFetchOneById($id) {
 
-    $query = "SELECT `news`.* "
-            . "FROM `news` "
-            . "WHERE `id` = '" . dbEscape($id) . "'";
+    $query = "SELECT `news`.*, "
+            . "`sections`.`title` AS section_title "
+            . " FROM `news` "
+            . " LEFT JOIN `sections` ON `news`.`section_id` = `sections`. `id` "
+            . " WHERE `news`.`id` = '" . dbEscape($id) . "'";
 
     return dbFetchOne($query);
 }

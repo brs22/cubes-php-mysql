@@ -197,6 +197,8 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
         //Uradi akciju koju je korisnik trazio
 
         productsUpdateOneById($product['id'], $formData);
+        
+        $_SESSION['system_message'] = 'Uspesno ste izmenili proizvod.';
 
         if (isset($_FILES['photo']) && empty($_FILES["photo"]['error'])) {
             //obrisemo staru sliku

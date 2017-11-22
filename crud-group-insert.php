@@ -42,6 +42,8 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 	if (empty($formErrors)) {
 		//Uradi akciju koju je korisnik trazio
 	$newGroup = groupsInsertOne($formData);
+        
+         $_SESSION['system_message'] = 'Uspesno ste uneli grupu.';
 
         header('location: /crud-group-list.php');
         die();

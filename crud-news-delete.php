@@ -30,7 +30,9 @@ print_r($sections);
 if (isset($_POST["task"]) && $_POST["task"] == "delete") {
 
     newsDeleteOneById($oneNews['id']);
-
+    
+    $_SESSION['system_message'] = 'Uspesno ste obrisali vest.';
+    
     header('location: /crud-news-list.php');
     die();
 }

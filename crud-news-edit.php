@@ -115,6 +115,8 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 
 newsUpdateOneById($oneNews['id'], $formData);
 
+$_SESSION['system_message'] = 'Uspesno ste izmenili vest.';
+
  if (isset($_FILES['photo']) && empty($_FILES["photo"]['error'])) {
             //obrisemo staru sliku
             $oldPhotoPath = __DIR__ . "/uploads/products/" . $oneNews['photo_filename'];
@@ -144,6 +146,8 @@ newsUpdateOneById($oneNews['id'], $formData);
                 die(); 
         }
         
+       
+       
         header('location: /crud-news-list.php');
         die();
     }

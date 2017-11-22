@@ -188,6 +188,8 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
         
         $newProductId = productsInsertOne($formData);
         
+         $_SESSION['system_message'] = 'Uspesno ste uneli proizvod.';
+         
         $newProductPhotoFileName = $newProductId . '_' . $photoFileName;
 
         $destinationPath = __DIR__ . '/uploads/products/' . $newProductPhotoFileName;

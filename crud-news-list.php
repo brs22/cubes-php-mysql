@@ -7,6 +7,14 @@ if(!isUserLoggedIn()) {
     die();
 }
 
+require_once __DIR__ . '/models/m_users.php';
+
+if(isset($_SESSION['system_message'])) {
+    $systemMessage = $_SESSION['system_message'];
+    
+    unset($_SESSION['system_message']);
+}
+
 require_once __DIR__ . '/models/m_news.php';
 require_once __DIR__ . '/models/m_sections.php';
 

@@ -105,6 +105,8 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
     //Ukoliko nema gresaka 
     if (empty($formErrors)) {
         $newNewsId = newsInsertOne($formData);
+        
+         $_SESSION['system_message'] = 'Uspesno ste uneli vest.';
 
         $newNewsPhotoFileName = $newNewsId . '_' . $photoFileName;
 

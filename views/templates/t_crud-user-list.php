@@ -26,15 +26,15 @@
         </div>
         <div class="row">
             <div class="col-md-12">	
-                <?php if (!empty($systemMessage)) {?>
+                <?php if (!empty($systemMessage)) { ?>
                     <div class = "alert alert-success alert-dismissible" role = "alert">
                         <button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close"><span aria-hidden = "true">&times;
                             </span></button>
-                        <?php echo htmlspecialchars($systemMessage);?>
+                        <?php echo htmlspecialchars($systemMessage); ?>
                     </div>
 
 
-<?php } ?>
+                <?php } ?>
 
                 <table class="table table-striped table-hover">
                     <thead>
@@ -49,25 +49,25 @@
                         </tr>
                     </thead>
                     <tbody>
-<?php foreach ($users as $user) { ?>
+                        <?php foreach ($users as $user) { ?>
                             <tr>
                                 <td>
                                     #<?php echo htmlspecialchars($user['id']); ?>
                                 </td>
                                 <td>
-    <?php echo htmlspecialchars($user['username']); ?>
+                                    <?php echo htmlspecialchars($user['username']); ?>
                                 </td>
                                 <td>
-    <?php echo htmlspecialchars($user['email']); ?>
+                                    <?php echo htmlspecialchars($user['email']); ?>
                                 </td>
                                 <td>
-    <?php echo htmlspecialchars($user['first_name']); ?>
+                                    <?php echo htmlspecialchars($user['first_name']); ?>
                                 </td>
                                 <td>
-    <?php echo htmlspecialchars($user['last_name']); ?>
+                                    <?php echo htmlspecialchars($user['last_name']); ?>
                                 </td>
                                 <td>
-    <?php echo htmlspecialchars($user['created_at']); ?>
+                                    <?php echo htmlspecialchars($user['created_at']); ?>
                                 </td>
                                 <td class="text-center">
                                     <div class="btn-group">
@@ -76,7 +76,7 @@
                                     </div>
                                 </td>
                             </tr>
-<?php } ?>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

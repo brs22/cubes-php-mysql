@@ -15,6 +15,7 @@
         <!--Portfolio feature item-->
         <div class="row">
             <div class="col-md-12">
+                
                 <h2>
                     CRUD Group - List
                     <a href="/crud-group-insert.php" class="pull-right btn btn-success">
@@ -25,7 +26,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">		
+            <div class="col-md-12">
+                <?php if (!empty($systemMessage)) { ?>
+                    <div class = "alert alert-success alert-dismissible" role = "alert">
+                        <button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close"><span aria-hidden = "true">&times;
+                            </span></button>
+                        <?php echo htmlspecialchars($systemMessage); ?>
+                    </div>
+
+
+                <?php } ?>
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -45,8 +55,8 @@
                                 </td>
                                 <td class="text-center">
                                     <div class="btn-group">
-                                        <a href="/crud-group-edit.php?id=<?php echo htmlspecialchars($group['id']);?>" class="btn btn-default"><i class="fa fa-pencil"></i></a>
-                                        <a href="/crud-group-delete.php?id=<?php echo htmlspecialchars($group['id']);?>" class="btn btn-default"><i class="fa fa-trash"></i></a>
+                                        <a href="/crud-group-edit.php?id=<?php echo htmlspecialchars($group['id']); ?>" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                        <a href="/crud-group-delete.php?id=<?php echo htmlspecialchars($group['id']); ?>" class="btn btn-default"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>

@@ -62,7 +62,9 @@ if (isset($_POST["website_url"]) && $_POST["website_url"] !== '') {
         //Uradi akciju koju je korisnik trazio
         
     brandsUpdateOneById($brand['id'], $formData);
-            
+    
+    $_SESSION['system_message'] = 'Uspesno ste izmenili brand.';
+    
     header('location: /crud-brand-list.php');
     die();
     }
