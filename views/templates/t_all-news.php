@@ -3,7 +3,9 @@
     <div class="container">
         <div class="header">
             <h2 class="page-title">
-                <span>All news</span>
+                <span>Vesti</span>
+
+                <small><?php echo htmlspecialchars($totalRows); ?> vesti</small>
             </h2>
         </div>
     </div>
@@ -18,27 +20,27 @@
                 <?php foreach ($news as $oneNews) { ?>
                     <div class="media row">
                         <div class="col-sm-3">
-                            <a class="media-photo" href="one-news.php?id=<?php echo $oneNews['id']; ?>">
-                                <img src="/uploads/news/<?php echo $oneNews['photo_filename']; ?>" alt="<?php echo $oneNews['title']; ?>" class="media-object img-polaroid" />
+                            <a class="media-photo" href="/one-news.php?id=<?php echo htmlspecialchars($oneNews['id']); ?>">
+                                <img src="/uploads/news/<?php echo htmlspecialchars($oneNews['photo_filename']); ?>" alt="<?php echo htmlspecialchars($oneNews['title']); ?>" class="media-object img-polaroid" width="215" height="215" />
                             </a>
                         </div>
                         <div class="col-sm-9">
                             <div class="media-body">
                                 <!-- Meta details -->
                                 <ul class="list-inline meta text-muted">
-                                    <li><i class="glyphicon glyphicon-calendar"></i> <span class="visible-md-inline visible-lg-inline">Created:</span> <?php echo $oneNews['created_at']; ?></li>
+                                    <li><i class="glyphicon glyphicon-calendar"></i> <span class="visible-md-inline visible-lg-inline">Created:</span> <?php echo htmlspecialchars($oneNews['created_at']); ?></li>
                                     <li>
                                         <i class="glyphicon glyphicon-tags"></i> <span class="visible-md-inline visible-lg-inline">Section:</span> 
-                                        <a href="#"><?php echo $oneNews['section_title']; ?></a>
+                                        <a href="/news-section.php?id=<?php echo htmlspecialchars($oneNews['section_id']); ?>"><?php echo htmlspecialchars($oneNews['section_title']); ?></a>
                                     </li>
                                 </ul>
                                 <h4 class="title media-heading">
-                                    <a href="one-news.php?id=<?php echo $oneNews['id']; ?>"><?php echo $oneNews['title']; ?></a>
+                                    <a href="/one-news.php?id=<?php echo htmlspecialchars($oneNews['id']); ?>"><?php echo htmlspecialchars($oneNews['title']); ?></a>
                                 </h4>
-                                <p>Description <?php echo $oneNews['description']; ?></p>
+                                <p><?php echo htmlspecialchars($oneNews['description']); ?></p>
                                 <ul class="list-inline links">
                                     <li>
-                                        <a href="one-news.php?id=<?php echo $oneNews['id']; ?>" class="btn btn-default btn-xs">
+                                        <a href="/one-news.php?id=<?php echo htmlspecialchars($oneNews['id']); ?>" class="btn btn-default btn-xs">
                                             <i class="glyphicon glyphicon-circle-arrow-right"></i>
                                             Read more
                                         </a>
@@ -52,13 +54,33 @@
 
                 <div class="text-center">
                     <ul class="pagination pagination-centered">
-                        <?php for ($i = 1; $i <= $totalPages; $i++) { ?>
-                            <?php if ($page != $i) { ?>
-                                <li><a href="/all-news.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
-                            <?php } else { ?>
-                                <li class="active"><span><?php echo $i; ?></span></li>
-                            <?php } ?>
+                         <?php for ($i = 1; $i <= $totalPages; $i++) { ?>
+
+                <?php if ($page != $i) { ?>
+                    <li><a href="/all-news.php?page=<?php echo ($i); ?>"><?php echo ($i); ?></a></li>
+                <?php } else { ?>
+                    <li class="active"><span><?php echo ($i); ?></span></li>
                         <?php } ?>
+                    <?php } ?>
+                    
+                    
+                    
+                <?php if ($page > 1) { ?>
+                <li><a href="/all-news.php?page=<?php echo ($previousPage = $page-1); ?>"> << </a></li>
+                
+                <?php }?>
+
+                <?php if ($page != $totalPages) { ?>
+                <li><a href="/all-news.php?page=<?php echo ($nextPage = $page+1); ?>"> >> </a></li>
+                
+                <?php }?>
+            
+                <?php if ($page == $totalPages) { ?>
+                <li><a href="/all-news.php?page=<?php echo ($firstPage = $totalPages / $totalPages); ?>">Go to First Page</a></li>
+            <?php } ?>
+                
+                    
+
                     </ul>
                 </div>
             </div>
