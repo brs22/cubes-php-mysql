@@ -1,4 +1,4 @@
-======== @Region: #highlighted ======== 
+<!-- ======== @Region: #highlighted ======== -->
 <div id="highlighted">
     <div class="container">
         <div class="header">
@@ -9,7 +9,7 @@
     </div>
 </div>
 
-======== @Region: #content ======== 
+<!-- ======== @Region: #content ======== -->
 <div id="content">
     <div class="container portfolio">
         Portfolio feature item

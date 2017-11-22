@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 17, 2017 at 04:05 PM
+-- Generation Time: Nov 22, 2017 at 10:04 PM
 -- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -75,7 +75,8 @@ INSERT INTO `categories` (`id`, `title`, `description`, `group_id`) VALUES
 (4, 'Ves Masina', '', 2),
 (5, 'Sporet', '', 2),
 (6, 'Fen', 'FEN Belotehnicni', 2),
-(7, 'Laptop', '', 3);
+(7, 'Laptop', '', 3),
+(14, 'test edit', '', 1);
 
 -- --------------------------------------------------------
 
@@ -124,10 +125,10 @@ INSERT INTO `news` (`id`, `section_id`, `title`, `photo_filename`, `description`
 (12, 3, 'Keba pijan vozio dzipa po Beogradu', NULL, '', '', '0000-00-00 00:00:00'),
 (13, 3, 'Seka slavila rodjendan', NULL, '', '', '0000-00-00 00:00:00'),
 (14, 2, 'Sastanak sefova svih zemalja', NULL, '', '', '0000-00-00 00:00:00'),
-(15, 4, 'Mijatovic  ponovo na krovu sveta', NULL, '', '', '0000-00-00 00:00:00'),
+(15, 4, 'Mijatovic  ponovo na krovu sveta!!!', NULL, '', '', '0000-00-00 00:00:00'),
 (16, 4, 'Tarlac dominira terenom', NULL, '', '', '0000-00-00 00:00:00'),
 (17, 3, 'Proslava rodjendana na krovu sveta - NAOCARE', '17_rayban-RB4165.jpg', '', '', '0000-00-00 00:00:00'),
-(18, 3, 'Indonezani zapalili Narodno pozoriste - a ovo je glavni krivac!!!', '18_2x2 copy.jpg', '', '', '0000-00-00 00:00:00');
+(18, 3, 'Indonezani zapalili Narodno pozoriste!!', '18_000024.JPG', '', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -174,9 +175,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `brand_id`, `title`, `photo_filename`, `description`, `specification`, `price`, `quantity`, `category_id`, `on_sale`, `discount`, `created_at`) VALUES
-(7, 1, 'Apple iPhone7 32GB', NULL, 'Mobilni Telefon Apple iPhone7 32GB', '', '98546.21', 23, 1, 0, '0.00', '2016-06-12 12:53:00'),
+(7, 1, 'Apple iPhone7 32GB', NULL, 'Mobilni Telefon Apple iPhone7 32GB', '', '98546.21', 23, 1, 1, '0.00', '2016-06-12 12:53:00'),
 (8, 1, 'Apple iPhone7 64GB', NULL, 'Mobilni Telefon Apple iPhone7 64GB', '', '112345.12', 2, 1, 0, '0.00', '2016-12-13 13:53:00'),
-(9, 1, 'Apple iPhone7 32GB Gold', NULL, 'Mobilni Telefon Apple iPhone7 32GB Gold', '', '101234.23', 1, 1, 0, '0.00', '2016-03-14 14:53:00'),
+(9, 1, 'Apple iPhone7 32GB Gold', NULL, 'Mobilni Telefon Apple iPhone7 32GB Gold', '', '101234.23', 1, 1, 1, '0.00', '2016-03-14 14:53:00'),
 (10, 1, 'Apple iPhone8 32GB', NULL, 'Mobilni Telefon Apple iPhone8 32GB', '', '127880.39', 12, 1, 1, '15.00', '2017-04-15 15:53:00'),
 (11, 1, 'Apple iPhone8 64GB', NULL, 'Mobilni Telefon Apple iPhone8 64GB', '', '151339.32', 2, 1, 0, '0.00', '2017-06-16 16:53:00'),
 (12, 1, 'Apple iPhone8 32GB Gold', NULL, 'Mobilni Telefon Apple iPhone8 32GB Gold', '', '161323.37', 0, 1, 0, '0.00', '2017-08-17 17:53:00'),
@@ -184,7 +185,7 @@ INSERT INTO `products` (`id`, `brand_id`, `title`, `photo_filename`, `descriptio
 (14, 8, 'Samsung Galaxy S7', NULL, 'Mobilni Telefon Samsung Galaxy S7', '', '69887.34', 3, 1, 0, '0.00', '2016-07-19 14:53:00'),
 (15, 8, 'Samsung Galaxy S6', NULL, 'Mobilni Telefon Samsung Galaxy S6', '', '55763.34', 3, 1, 0, '0.00', '2015-02-20 11:53:00'),
 (16, 6, 'Huawei P10', NULL, 'Mobilni Telefon Huawei P10', '', '67898.77', 6, 1, 0, '0.00', '2016-11-21 12:53:00'),
-(17, 6, 'Huawei P9', NULL, 'Mobilni Telefon Huawei P9', '', '65632.33', 12, 1, 0, '0.00', '2015-03-22 12:53:00'),
+(17, 6, 'Huawei P9', NULL, 'Mobilni Telefon Huawei P9', '', '65632.33', 12, 1, 1, '0.00', '2015-03-22 12:53:00'),
 (18, 5, 'HTC Desire 820', NULL, 'Mobilni Telefon HTC Desire 820', '', '32456.76', 3, 1, 0, '0.00', '2014-08-23 12:53:00'),
 (19, 5, 'HTC One A9', NULL, 'Mobilni Telefon HTC One A9', '', '38271.12', 11, 1, 1, '20.00', '2016-05-24 12:53:00'),
 (20, 5, 'HTC U12', NULL, 'Mobilni Telefon HTC U12', '', '55736.43', 7, 1, 0, '0.00', '2017-06-25 12:53:00'),
@@ -208,8 +209,7 @@ INSERT INTO `products` (`id`, `brand_id`, `title`, `photo_filename`, `descriptio
 (43, NULL, 'Televizor 8X56P', NULL, 'Televizor 8X56P', 'Televizor 8X56P', '11800.00', 36, 2, 0, '0.00', '2017-11-01 00:00:00'),
 (44, 1, 'Ipod Nano', NULL, 'Ipod Nano', 'Ipod Nano', '9800.00', 3, NULL, 0, '0.00', '2017-10-23 00:00:00'),
 (45, 2, 'Pegla 1200W', NULL, 'Pegla 1200W', 'Pegla 1200W', '3200.00', 1, 99, 0, '0.00', '2017-10-16 00:00:00'),
-(46, 4, 'Sporet Test Q1', '46_butterfly.jpg', 'safbafdba', 'adfbsdbfs', '1266112.00', 0, 5, 0, '0.00', '0000-00-00 00:00:00'),
-(47, 4, 'Sporet Test Q1', '47_GOLU.png', 'safbafdba', 'adfbsdbfs', '1266112.00', 0, 5, 0, '0.00', '0000-00-00 00:00:00');
+(46, 4, 'Sporet Test Q1', '46_butterfly.jpg', 'safbafdba', 'adfbsdbfs', '1266112.00', 0, 5, 0, '0.00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -379,52 +379,62 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
 --
 -- AUTO_INCREMENT for table `polaznici`
 --
 ALTER TABLE `polaznici`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
 --
 -- AUTO_INCREMENT for table `product_tags`
 --
 ALTER TABLE `product_tags`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
